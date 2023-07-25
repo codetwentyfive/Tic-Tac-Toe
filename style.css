@@ -1,3 +1,12 @@
+:root {
+  --main-color: #14bdac;
+  --accent--color:#0da192;
+  --bg-color:black;
+
+}
+
+
+
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -6,24 +15,28 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  background-color: black;
+  color: white;
 }
 
 h1{
 
-    margin: 2em;
+    margin:1em;
     font-weight: bold;
-    size: 2em;
+    size: 4em;
 }
 .container {
-  background-color: #f0f0f0;
-  padding: 20px;
+  background-color:var(--accent--color);
+  padding: 0px;
   border-radius: 10px;
+  border-color: black;
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(3, 100px);
-  grid-gap: 2px;
+  grid-gap: 10px;
+  
 }
 
 .cell {
@@ -34,9 +47,20 @@ h1{
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: 1px solid #ccc;
+  border: 3px solid black;
 }
 
 .cell:hover {
-  background-color: #e0e0e0;
+  background-color: black;
+}
+.cell:active{
+  transform: scale(1.1);
+}
+#replayBtn {
+  margin-top: 2em;
+  padding: 1em 4em;
+  background-color: #0da192;
+  border-radius: 10px;
+  color: white;
+
 }
