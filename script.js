@@ -91,7 +91,7 @@ const createGameLogic = () => {
             displayBoard();
             if (checkWin(currentPlayer.symbol)) {
                 setTimeout(() => {
-                    alert(`${currentPlayer.name} wins!`);
+                    alert(`${currentPlayer.name} gewinnt!`);
                     gameBoard.clearBoard();
                     displayBoard();
                 }, 100);
@@ -100,22 +100,31 @@ const createGameLogic = () => {
             }
         }
     };
+    const replay = () => {
+        gameBoard.clearBoard();
+        displayBoard();
+        currentPlayer=player1;
+      };
 
     displayBoard();
 
 
     return {
         displayBoard,
+        replay,
     };
 
 
 };
 
 
-
 //create players
-const player1 = player("Player1", "X");
-const player2 = player("Player2", "O");
+const player1 = player("Snootle", "X");
+const player2 = player("Capitalists", "O");
 
-createGameLogic();
-console.log("Hello")
+const gameController=createGameLogic();
+
+const replayBtn= document.getElementById('replayBtn');
+replayBtn.addEventListener('click',gameController.replay);
+
+console.log("Hello");
