@@ -48,7 +48,7 @@ const createGameBoard = () => {
 const createGameLogic = () => {
 
     let currentPlayer = player1;
-    let gameBoard = createGameBoard();
+    const gameBoard = createGameBoard();
     const boardEl = document.getElementById('board');
 
 
@@ -114,7 +114,8 @@ const createGameLogic = () => {
 
 
 //create players
-const player1 = player("player1", "X");
-const player2 = player("player2", "O");
+const player1 = player("Player1", "X");
+const player2 = player("Player2", "O");
 
+createGameLogic();
 console.log("Hello")
