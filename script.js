@@ -2,9 +2,7 @@
 const player = (name, symbol) => {
     return { name, symbol };
 
-}
-
-
+};
 
 //factory function to create game board
 const createGameBoard = () => {
@@ -12,21 +10,21 @@ const createGameBoard = () => {
 
     const getBoard = () => {
         return (board);
-    }
+    };
 
     const clearBoard = () => {
-        board = Array(9).fill('');
+        board.fill('')
     };
 
     const isCellEmpty = (index) => {
-        board[index] === '';
+        return board[index] === '';
 
     };
 
     const placeSymbol = (index, symbol) => {
-        if (isCellEmpty(index) == '') {   //checks if the index is empty and populates it with the symbol
+        if (isCellEmpty(index)) {   //checks if the index is empty and populates it with the symbol
             board[index] = symbol;
-            return true
+            return true;
         } else {
             return false;
 
@@ -41,11 +39,9 @@ const createGameBoard = () => {
         getBoard,
         clearBoard,
         isCellEmpty,
-        placeSymbol
-    }
-}
-
-createGameBoard();
+        placeSymbol,
+    };
+};
 
 
 //create game logic(game controls)
@@ -53,7 +49,7 @@ const createGameLogic = () => {
 
     let currentPlayer = player1;
     let gameBoard = createGameBoard();
-    const boardEl = document.getElementsByClassName(".board");
+    const boardEl = document.getElementById('board');
 
 
 
@@ -62,7 +58,7 @@ const createGameLogic = () => {
         boardEl.innerHTML = '';
         board.forEach((cell, index) => {
             const cellEl = document.createElement('div');
-            cellEl.classList.add("cell");
+            cellEl.classList.add('cell');
             cellEl.textContent = cell;
             cellEl.addEventListener('click', () => handleCellClick(index));
             boardEl.appendChild(cellEl);
@@ -86,10 +82,31 @@ const createGameLogic = () => {
 
         return winPatterns.some(pattern => pattern.every(index => board[index] === symbol));
 
+
     };
 
+    const handleCellClick = (index) => {
+        if (gameBoard.isCellEmpty(index)) {
+            gameBoard.placeSymbol(index, currentPlayer.symbol);
+            displayBoard();
+            if (checkWin(currentPlayer.symbol)) {
+                setTimeout(() => {
+                    alert(`${currentPlayer.name} wins!`);
+                    gameBoard.clearBoard();
+                    displayBoard();
+                }, 100);
+            } else {
+                switchTurn();
+            }
+        }
+    };
+
+    displayBoard();
 
 
+    return {
+        displayBoard,
+    };
 
 
 };
