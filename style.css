@@ -19,6 +19,23 @@ body {
   color: white;
 }
 
+.footer {
+  color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+a:visited {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.icon {
+  max-width: 1em;
+}
 h1{
 
     margin:1em;
