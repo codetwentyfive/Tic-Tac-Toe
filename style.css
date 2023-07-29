@@ -2,13 +2,13 @@
   --main-color: #14bdac;
   --accent--color:#0da192;
   --bg-color:black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
 
 
 
 body {
-  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
