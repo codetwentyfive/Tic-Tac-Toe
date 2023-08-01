@@ -72,6 +72,7 @@ const createGameLogic = () => {
     }
 
 
+
     const checkWin = (symbol) => {
         const board = gameBoard.getBoard();
         const winPatterns = [
@@ -106,6 +107,10 @@ const createGameLogic = () => {
         currentPlayer=player1;
       };
 
+    const restart= ()=> {
+        
+
+    };
     displayBoard();
 
 
