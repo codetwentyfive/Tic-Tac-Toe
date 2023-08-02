@@ -2,13 +2,13 @@
   --main-color: #14bdac;
   --accent--color:#0da192;
   --bg-color:black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
 
 
 
 body {
-  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,6 +19,23 @@ body {
   color: white;
 }
 
+.footer {
+  color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+a:visited {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.icon {
+  max-width: 1em;
+}
 h1{
 
     margin:1em;
