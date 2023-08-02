@@ -85,6 +85,19 @@ const createGameLogic = () => {
 
     };
 
+
+    const checkForDraw = () => {
+        const board = gameBoard.getBoard();
+    
+        // Check if all cells are filled
+        for (let i = 0; i < 9; i++) {
+            if (board[i] === '') {
+                return false;
+            }
+        }
+        return true;
+    };
+    
     const handleCellClick = (index) => {
         if (gameBoard.isCellEmpty(index)) {
             gameBoard.placeSymbol(index, currentPlayer.symbol);
@@ -95,16 +108,23 @@ const createGameLogic = () => {
                     gameBoard.clearBoard();
                     displayBoard();
                 }, 100);
+            } else if (checkForDraw()) {
+                setTimeout(() => {
+                    alert("Unentschieden!");
+                    gameBoard.clearBoard();
+                    displayBoard();
+                }, 100);
             } else {
                 switchTurn();
             }
         }
     };
+    
     const replay = () => {
         gameBoard.clearBoard();
         displayBoard();
-        currentPlayer=player1;
-      };
+        currentPlayer = player1;
+    };
 
     displayBoard();
 
@@ -112,6 +132,7 @@ const createGameLogic = () => {
     return {
         displayBoard,
         replay,
+        checkForDraw
     };
 
 
@@ -122,9 +143,9 @@ const createGameLogic = () => {
 const player1 = player("Snootle", "X");
 const player2 = player("Capitalists", "O");
 
-const gameController=createGameLogic();
+const gameController = createGameLogic();
 
-const replayBtn= document.getElementById('replayBtn');
-replayBtn.addEventListener('click',gameController.replay);
+const replayBtn = document.getElementById('replayBtn');
+replayBtn.addEventListener('click', gameController.replay);
 
 console.log("Hello");
